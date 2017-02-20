@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #container{
+        display: inline-block;
+        margin:10px 10px 10px 10px;
+    }
+    p{
+        background:red;
+        border: 1px solid black;
+        padding:5px;
+        margin: 10px 10px 10px 10px;
+        display: inline-block;
+    }
+</style>
+<body>
+<div>
+    <label for="num"></label>
+    <input name="num" id="num" type="number"/>
+    <label for="but1"></label>
+    <input name="but1" id="but1" type="button" value="左侧入" onclick="leftIn()"/>
+    <label for="but2"></label>
+    <input name="but2" id="but2" type="button" value="右侧入" onclick="rightIn()"/>
+    <label for="but3"></label>
+    <input name="but3" id="but3" type="button" value="左侧出"onclick="leftOut()"/>
+    <label for="but4"></label>
+    <input name="but4" id="but4" type="button" value="右侧出"onclick="rightOut()"/>
+</div>
+<div id="container"></div>
+<script>
+    var num = new Array();
+function leftIn(){
+    var newnum = document.getElementById("num").value;
+    num.unshift(newnum);
+    var p=document.createElement("p");
+    var parentElem=document.getElementById("container");
+    var newp=parentElem.appendChild(p);
+    var targetElem=parentElem.firstChild;
+    parentElem.insertBefore(newp,targetElem);
+    var text=document.createTextNode(newnum);
+    newp.appendChild(text);
+}
+    //rightIn不用改
+    function rightIn(){
+        var newnum = document.getElementById("num").value;
+        num.push(newnum);
+        var p=document.createElement("p");
+        var newp=document.getElementById("container").appendChild(p);
+        var text=document.createTextNode(newnum);
+        newp.appendChild(text);
+    }
+
+    function leftOut(){
+        if(num.length==0){
+            alert("当前无元素");
+            return 0;
+        }
+        else{
+            num.shift(num[0]);
+            var parentElem=document.getElementById("container");
+            var targetElem=parentElem.firstChild;
+            parentElem.removeChild(targetElem);
+        }
+
+    }
+    function rightOut(){
+        if(num.length==0){
+            alert("当前无元素");
+            return 0;
+        }
+        else{
+            num.shift(num[0]);
+            var parentElem=document.getElementById("container");
+            var targetElem=parentElem.lastChild;
+            parentElem.removeChild(targetElem);
+        }
+    }
+</script>
+</body>
+</html>

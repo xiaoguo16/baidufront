@@ -1,0 +1,51 @@
+body{
+    padding:20px;
+    font-family:"Î¢ÈíÑÅºÚ"£»
+    font-size:15px;
+}
+h2{
+    margin:0px;
+}
+.main_wrapper{
+    margin:0 atuo;
+    padding:20px;
+    background: #eee;
+    border:1px solid #999;
+    overflow:auto;//Çå³ý¸¡¶¯£¬·ÀÖ¹Í¼Æ¬³¬³ödiv¿ò
+    min-width:600px;
+}
+
+.left{
+    width:160px;
+    padding:20px;
+    float:left;
+    background: white;
+    border:1px solid #999;
+}
+
+.team_logo{
+    float:left;
+}
+.team_name{
+    float:left;
+}
+.right{
+    width:120px;
+    float:right;
+    border:1px solid #999;
+    background: white;
+}
+.middle{
+    border:1px solid #999;
+    padding:20px;
+    margin-left:220px;
+    margin-right:140px;
+    background: #fff  ;
+
+}
+.member_logo{
+    background: #fff;
+    border:1px solid #999;
+    margin:20px;
+    display:block;
+}

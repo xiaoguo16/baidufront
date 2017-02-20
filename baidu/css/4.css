@@ -1,0 +1,28 @@
+
+.main{
+    width:400px;
+    height:200px;
+    background-color: #ccc;
+    position:absolute;
+margin-left:-200px;
+    margin-top:-100px;
+    top:50%;
+    left:50%;
+
+}
+.left-top{
+    width:50px;
+    height:50px;
+    border-radius:0 0 50px 0;
+    background-color:#FC0;
+    position:absolute;
+}
+.right-bottom{
+    width:50px;
+    height:50px;
+    border-radius:50px 0 0  0;
+    background-color:#FC0;
+    position:absolute;
+    bottom:0;
+    right:0;
+}

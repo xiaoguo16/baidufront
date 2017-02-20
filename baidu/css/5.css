@@ -1,0 +1,134 @@
+body{
+    font-family:"黑体"；
+    font-size:14px;
+    margin:0px;
+    border:0px;
+    background:#DEDEDE;
+    min-width:750px;
+}
+.header{
+    width:100%;
+    height:70px;
+    background:#333333;
+    display:table;
+}
+.header span{
+    height:70px;
+    display:table-cell;
+}
+.header span img{
+    margin-left:35px;
+}
+nav ul{
+float:right;
+    margin:0px;
+    padding:0px;
+}
+nav ul li{
+    float:left;
+    margin-right:20px;
+    line-height:70px;
+}
+nav ul li a{
+    color:#fff;
+    text-decoration:none;
+    font-size:10px;
+}
+nav ul li a:hover{
+    color:gray;
+}
+aside{
+    background:white;
+    float:right;
+    width:350px;
+    margin-top:20px;
+    margin-right:20px;
+    box-shadow:2px 2px 2px #848484;/*边框阴影*/
+padding:10px;
+}
+form{
+    width:100%;
+    min-width:300px;
+}
+form>div{
+    margin:10px 0;
+}
+input[type="submit"]{
+    width:100%;
+    height:40px;
+    color:white;
+    background-color: #3355D0;
+    border-radius:8px;
+    border:1px solid #3355D0;
+    font-weight:800;
+    font-size: 16px;
+}
+.input_messages{
+    display:inline-block;
+    width:30%;
+    margin-top:10px;
+    margin-right:10px;
+    margin-bottom:0px;
+    text-align: right;
+}
+.input_message{
+    display:inline-block;
+    width:30%;
+    margin-top:10px;
+    margin-right:20px;
+    margin-bottom:0px;
+    text-align:right;
+    vertical-align:top;
+}
+.demand{
+    font-size:13px;
+    color:gray;
+    margin-left:37.5%;
+    margin-top:10px;
+}
+article{
+    margin-top:20px;
+    margin-left:20px;
+    background-color:#FFF;
+    margin-right:400px;
+    line-height:1.5;
+    box-shadow:2px 2px 2px #848484;/*边框阴影*/
+    padding:20px;
+}
+footer{
+    width:100%;
+    height:60px;
+    background:black;
+    margin-top:20px;
+    color:#fff;
+    font-weight:500;
+    line-height:60px;/*上下居中*/
+    text-align:center;
+    font-size:14px;
+}
+table{
+    width:100%;
+    margin:0 auto;
+    border-color:#ccc;
+    border-collapse:collapse;
+}
+thead{
+    color:white;
+    background:black;
+}
+tfoot{
+    background:#ccc;
+}
+figure{
+    height:120px;
+    width:140px;
+    border:1px solid #aaa;
+    display:inline-block;/*保证横向排列*/
+    padding-bottom:10px;
+    margin-bottom:10px;
+    text-align: center;
+}
+figcaption{
+    padding:5px;
+}
+

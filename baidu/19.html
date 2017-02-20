@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #container{
+        display: inline-block;
+        margin:10px 10px 10px 10px;
+    }
+    p{
+        background:red;
+        border: 1px solid black;
+        padding:5px;
+        margin: 10px 10px 10px 10px;
+        display: inline-block;
+    }
+</style>
+<body>
+<div>
+    <label for="num"></label>
+    <input name="num" id="num" type="number"/>
+    <label for="but1"></label>
+    <input name="but1" id="but1" type="button" value="左侧入" onclick="leftIn()"/>
+    <label for="but2"></label>
+    <input name="but2" id="but2" type="button" value="右侧入" onclick="rightIn()"/>
+    <label for="but3"></label>
+    <input name="but3" id="but3" type="button" value="左侧出" onclick="leftOut()"/>
+    <label for="but4"></label>
+    <input name="but4" id="but4" type="button" value="右侧出" onclick="rightOut()"/>
+    <label for="but5"></label>
+    <input name="but5" id="but5" type="button" value="排序" onclick="bubbleSort()"/>
+</div>
+<div id="container"></div>
+<script>
+    var num = new Array();
+    function leftIn(){
+        var newnum = document.getElementById("num").value;
+        if(newnum<10||newnum>60){
+            alert("输入数字需要在10到60之间");
+            return 0;
+        }
+        if(num.length>=6){
+            alert("数组长度需在6以下");
+            return 0;
+        }
+        num.unshift(newnum);
+        var p=document.createElement("p");
+       var parentElem=document.getElementById("container");
+        var newp=parentElem.appendChild(p);
+        var targetElem=parentElem.firstChild;
+        parentElem.insertBefore(newp,targetElem);
+        var text=document.createTextNode(newnum);
+        newp.appendChild(text);
+        p.style.height=newnum+"px";
+    }
+
+    function rightIn(){
+        var newnum = document.getElementById("num").value;
+        if(newnum<10||newnum>60){
+            alert("输入数字需要在10到60之间");
+            return 0;
+        }
+        if(num.length>=6){
+            alert("数组长度需在6以下");
+            return 0;
+        }
+        num.push(newnum);
+        var p=document.createElement("p");
+        var newp=document.getElementById("container").appendChild(p);
+        var text=document.createTextNode(newnum);
+        newp.appendChild(text);
+        p.style.height=newnum+"px";
+    }
+
+    function leftOut(){
+        if(num.length==0){
+            alert("当前无元素");
+            return 0;
+        }
+        else{
+            num.shift(num[0]);
+            var parentElem=document.getElementById("container");
+            var targetElem=parentElem.firstChild;
+            parentElem.removeChild(targetElem);
+        }
+
+    }
+    function rightOut(){
+        if(num.length==0){
+            alert("当前无元素");
+            return 0;
+        }
+        else{
+            num.shift(num[0]);
+           var parentElem=document.getElementById("container");
+            var targetElem=parentElem.lastChild;
+            parentElem.removeChild(targetElem);
+        }
+    }
+
+    function bubbleSort(){
+        var i=num.length-1, t,j;
+        while(i>0){
+            for(j=0;j<i;++j){
+                if(num[j]>num[j+1]){
+                    t=num[j];
+                    num[j]=num[j+1];
+                    num[j+1]=t;
+                    //dom操作
+                    var parentElem=document.getElementById("container");
+                    var firstElem=document.getElementById("container").childNodes[j];
+                    var secondElem=document.getElementById("container").childNodes[j+1];
+                    parentElem.removeChild(secondElem);
+                    var p=document.createElement("p");
+                    var text=document.createTextNode(num[j]);
+                    p.appendChild(text);
+                    parentElem.insertBefore(p,firstElem);
+                    p.style.height=num[j]+"px";
+                }
+            }
+            i=i-1;
+
+        }
+        return num;
+    }
+
+
+</script>
+</body>
+</html>

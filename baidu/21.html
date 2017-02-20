@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+
+</style>
+<body>
+<div id="tag">
+    <span>Tag</span>
+    <label for="tag"></label>
+    <input name="tag" id="tag" type="text"/>
+</div>
+<div id="container1"></div>
+<div id="hobby">
+    <label for="hobby"></label>
+    <textarea name="hobby" id="hobby"></textarea>
+    <label for="hobbybutton"></label>
+    <input id="hobbybutton" value="兴趣爱好" type="button"/>
+</div>
+<div id="container2"></div>
+<script>
+    var str,strAll=new Array();
+
+    function strDeal(){
+        str = document.getElementById("num").value;
+        str=str.split(/[^0-9a-zA-Z\u4e00-\u9fa5]+/).filter(function(e){
+            if(e!=null && e.length>0){//把空字符串删掉
+                return true;
+            }
+            else{return false}
+        })//将字符串分割为数组
+    }
+    function leftIn(){
+        strDeal();
+        for(i=0;i<str.length;i++){
+            strAll.unshift(str[i]);
+            var p=document.createElement("p");
+            var parentElem=document.getElementById("container");
+            var newp=parentElem.appendChild(p);
+            var targetElem=parentElem.firstChild;
+            parentElem.insertBefore(newp,targetElem);
+            var text=document.createTextNode(str[i]);
+            newp.appendChild(text);
+        }
+    }
+    function inquire(){
+        var value=document.getElementById("inquire").value;
+        for(i=0;i<strAll.length;i++){
+            if(strAll[i]==value){
+                var parentElem=document.getElementById("container");
+                var inquireP=parentElem.childNodes[i];
+                inquireP.style.background="yellow";
+                break;
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

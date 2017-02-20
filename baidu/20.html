@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #container{
+        display: inline-block;
+        margin:10px 10px 10px 10px;
+    }
+    p{
+        background:red;
+        border: 1px solid black;
+        padding:5px;
+        margin: 10px 10px 10px 10px;
+        display: inline-block;
+    }
+</style>
+<body>
+<div>
+    <label for="num"></label>
+    <textarea name="num" id="num"></textarea>
+    <label for="but1"></label>
+    <input name="but1" id="but1" type="button" value="插入" onclick="leftIn()"/>
+    <input name="but5" id="but5" type="button" value="查询"onclick="inquire()"/>
+    <label for="inquire"></label>
+    <input name="inquire" id="inquire" type="text"/>
+</div>
+<div id="container"></div>
+<script>
+    var str,strAll=new Array();
+
+    function strDeal(){
+        str = document.getElementById("num").value;
+        str=str.split(/[^0-9a-zA-Z\u4e00-\u9fa5]+/).filter(function(e){
+            if(e!=null && e.length>0){//把空字符串删掉
+                return true;
+            }
+            else{return false}
+        })//将字符串分割为数组
+    }
+    function leftIn(){
+       strDeal();
+        for(i=0;i<str.length;i++){
+            strAll.unshift(str[i]);
+            var p=document.createElement("p");
+            var parentElem=document.getElementById("container");
+            var newp=parentElem.appendChild(p);
+            var targetElem=parentElem.firstChild;
+            parentElem.insertBefore(newp,targetElem);
+            var text=document.createTextNode(str[i]);
+            newp.appendChild(text);
+        }
+    }
+function inquire(){
+var value=document.getElementById("inquire").value;
+for(i=0;i<strAll.length;i++){
+    if(strAll[i]==value){
+var parentElem=document.getElementById("container");
+        var inquireP=parentElem.childNodes[i];
+        inquireP.style.background="yellow";
+break;
+    }
+}
+}
+
+</script>
+</body>
+</html>
